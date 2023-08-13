@@ -1,3 +1,4 @@
 .grafbase/database
 .grafbase/generated
 .grafbase/registry.json
+.grafbase/resolvers
