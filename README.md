@@ -1,4 +1,4 @@
-# Grafbase Real World Auth Monorepo
+# GraphQL Group based access Control with Grafbase and Authdog
 
 ## Components
 
@@ -22,3 +22,6 @@ make install
 ```bash
 make dev
 ```
+## License
+
+This project is licensed under the [Apache 2.0 license](LICENSE).
