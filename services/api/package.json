@@ -8,9 +8,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "grafbase": "npx grafbase",
-    "dev": "grafbase dev",
-    "deploy": "grafbase deploy"
+    "dev": "npx grafbase dev",
+    "deploy": "npx grafbase deploy"
   },
   "keywords": [],
   "author": "",
