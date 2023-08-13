@@ -23,9 +23,6 @@
     },
     "install": {
       "cache": false
-    },
-    "@authdog-samples/grafbase-web#dev": {
-      "dependsOn": ["@authdog-samples/grafbase-ui#build"]
     }
   }
 }

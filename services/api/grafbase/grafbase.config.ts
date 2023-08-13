@@ -1,10 +1,9 @@
-import { g, auth, config } from '@grafbase/sdk'
+import { g, auth, config } from "@grafbase/sdk";
 
 const authdog = auth.OpenIDConnect({
   issuer: "https://id.auth.dog",
-  groupsClaim: 'groups'
+  groupsClaim: "groups",
 });
-
 
 g.query("helloWorld", {
   args: {},
@@ -12,16 +11,18 @@ g.query("helloWorld", {
   resolver: "hello-world",
 });
 
+const authParams = {
+  providers: [authdog],
+  rules: (rules: any) => {
+    // cdab03cd-a442-4564-8c6c-307ce90a2f74 -> Grafbase granted group
+    rules.groups(["cdab03cd-a442-4564-8c6c-307ce90a2f74"]);
+  },
+};
+
 export default config({
   schema: g,
-  auth: {
-    providers: [authdog],
-    rules: (rules) => {
-      // 75637d51-b57a-46d5-ab78-ac75980aad86 -> admin group
-      // 75637d51-b57a-46d5-ab78-ac75980aad87 -> unknwon group
-      rules.groups(['75637d51-b57a-46d5-ab78-ac75980aad87']);
-    },
-  },
+  // @ts-ignore
+  auth: authParams,
   cache: {
     rules: [
       {
@@ -36,4 +37,4 @@ export default config({
       },
     ],
   },
-})
+});

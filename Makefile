@@ -16,3 +16,9 @@ dev_web:
 
 dev_api:
 	pnpm turbo run dev $(FILTER_API)
+
+deploy_api:
+	pnpm turbo run deploy $(FILTER_API)
+
+pretty:
+	pnpm format
