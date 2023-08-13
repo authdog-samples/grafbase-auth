@@ -1,0 +1,7 @@
+
+                name = "crawl-page"
+                [build.upload]
+                format = "modules"
+                [miniflare]
+                routes = ["127.0.0.1/invoke"]
+            

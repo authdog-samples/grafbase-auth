@@ -1,0 +1,4 @@
+{
+  "module": "wrangler/entrypoint.js",
+  "type": "module"
+}

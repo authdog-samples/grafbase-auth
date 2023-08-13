@@ -1,0 +1,25 @@
+name: Grafbase
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, gulp, prettier, typescript]
+      - name: Deploy
+        run: |
+          cd services/api
+          # npx grafbase link
+          npx grafbase deploy
+        env:
+          GRAFBASE_ACCESS_TOKEN: ${{ secrets.GRAFBASE_ACCESS_TOKEN }}
